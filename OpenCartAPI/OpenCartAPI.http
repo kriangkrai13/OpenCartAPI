@@ -1,0 +1,6 @@
+@OpenCartAPI_HostAddress = http://localhost:5004
+
+GET {{OpenCartAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
