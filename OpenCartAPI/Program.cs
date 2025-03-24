@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using OpenCart.DatabaseSpecific;
 using SD.LLBLGen.Pro.DQE.SqlServer;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 var builder = WebApplication.CreateBuilder(args);
@@ -15,10 +16,8 @@ RuntimeConfiguration.ConfigureDQE<SQLServerDQEConfiguration>(
     c => c.SetTraceLevel(TraceLevel.Verbose)
           .AddDbProviderFactory(typeof(Microsoft.Data.SqlClient.SqlClientFactory))
 );
-RuntimeConfiguration.AddConnectionString("ConnectionString", connectionString);
-
-
-// Add services to the container.
+//add service connection database
+builder.Services.AddSingleton<DataAccessAdapter>(new DataAccessAdapter(connectionString));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
