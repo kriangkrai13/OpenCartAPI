@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OpenCart.DatabaseSpecific;
 using OpenCart.EntityClasses;
+using OpenCart.FactoryClasses;
+using OpenCart.HelperClasses;
+using OpenCartAPI.Helpers;
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using SD.LLBLGen.Pro.QuerySpec.Adapter;
 namespace OpenCartAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -14,9 +17,10 @@ namespace OpenCartAPI.Controllers
         {
             _dataAccessAdapter = dataAccessAdapter;
         }
+
         [HttpPost]
         [Route("")]
-        public IActionResult Post([FromBody] UserRequest req)
+        public ActionResult<ResponseResult> CreateUser([FromBody] UserRequest req)
         {
             if (req == null)
             {
@@ -24,7 +28,11 @@ namespace OpenCartAPI.Controllers
             }
             try
             {
-                if(req.Password == null || req.Password.Length < 8)
+                //check username 
+                if (existingUser != null)
+                    return StatusCode(StatusCodes.Status409Conflict, "Username has already.");
+
+                if (req.Password == null || req.Password.Length < 8)
                 {
                     return BadRequest("Password must be at least 8 characters long");
                 }
@@ -38,7 +46,7 @@ namespace OpenCartAPI.Controllers
                     IsActive = req.IsActive
                 };
                 _dataAccessAdapter.SaveEntity(user);
-                return Ok("User added successfully");
+                return Ok(new ResponseResult { Status=true,Message="Create successfully" });
             }
             catch (Exception ex)
             {

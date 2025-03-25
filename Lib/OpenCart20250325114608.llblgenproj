@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--LLBLGen Pro v5.11 project file. Do not manually edit this file. Incorrect references could lead to an unloadable project file.-->
-<Project Version="5.11" TargetFrameworkName="LLBLGen Pro Runtime Framework" UseLegacyDefaults="false">
+<Project Version="5.11" TargetFrameworkName="Entity Framework Core v8" UseLegacyDefaults="false">
   <Properties>
     <Abbreviations />
     <Property Name="AdditionalTaskPerformerFolder" Value="" />
@@ -97,42 +97,35 @@
     <OutputType Value="3">
       <LastUsedPreferences>
         <DestinationRootFolder Value="D:\LLBL Generate\OpenCart" />
-        <FrameworkName Value="LLBLGen Pro Runtime Framework" />
+        <FrameworkName Value="Entity Framework Core v8" />
         <LanguageName Value="C#" />
         <PlatformName Value=".NET 8" />
-        <PresetName Value="SD.Presets.Adapter.General.Netstandard" />
+        <PresetName Value="SD.EntityFramework.Core v8" />
         <RootNamespace Value="OpenCart" />
-        <TemplateGroup Value="Adapter" />
+        <TemplateGroup Value="General" />
         <TemplateBindings>
-          <Binding Name="SD.TemplateBindings.SharedTemplates.Net8" />
-          <Binding Name="SD.TemplateBindings.SharedTemplates" />
-          <Binding Name="SD.TemplateBindings.SqlServerSpecific" />
+          <Binding Name="SD.EntityFramework.Core.v8.SqlServer" />
+          <Binding Name="SD.EntityFramework.Core v8" />
+          <Binding Name="SD.EntityFramework.NET8" />
+          <Binding Name="SD.EntityFramework.Shared" />
           <Binding Name="SD.TemplateBindings.General" />
         </TemplateBindings>
         <AdhocTemplateSets />
       </LastUsedPreferences>
     </OutputType>
   </CodeGenerationCyclePreferences>
-  <CodeGenerationMetaDataDefaults>
-    <TargetElement Type="256">
-      <Defaults>
-        <Attributes>
-          <Attribute Value="Browsable($false)" />
-        </Attributes>
-      </Defaults>
-    </TargetElement>
-  </CodeGenerationMetaDataDefaults>
+  <CodeGenerationMetaDataDefaults />
   <EntityModel>
     <ValueTypeDefinitions />
     <EntityDefinitions>
-      <EntityDefinition Name="User" ObjectID="75fe51d2-96b2-4d14-b6dc-26330ac82683">
+      <EntityDefinition Name="User" ObjectID="8fd3d2bc-f339-404a-9377-cf398337c5a8">
         <Fields>
-          <Field Name="Firstname" Type="string" MaxLength="50" FieldIndex="1" />
-          <Field Name="IsActive" Type="bool" FieldIndex="5" />
-          <Field Name="Lastname" Type="string" MaxLength="50" FieldIndex="2" />
-          <Field Name="Password" Type="string" MaxLength="2147483647" FieldIndex="4" />
-          <Field Name="UserId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" FieldIndex="0" />
-          <Field Name="Username" Type="string" MaxLength="50" FieldIndex="3" />
+          <Field Name="Firstname" Type="string" MaxLength="50" />
+          <Field Name="IsActive" Type="bool" />
+          <Field Name="Lastname" Type="string" MaxLength="50" />
+          <Field Name="Password" Type="string" MaxLength="2147483647" />
+          <Field Name="UserId" Type="int" IsReadOnly="true" Precision="10" />
+          <Field Name="Username" Type="string" MaxLength="50" />
         </Fields>
       </EntityDefinition>
     </EntityDefinitions>
@@ -155,7 +148,7 @@
       <Catalogs>
         <Catalog Name="OpenCart" SyncSource="2">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2025-03-25T04:48:11.7760551Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2025-03-25T04:15:20.5863313Z">
               <Tables>
                 <Table Name="Users">
                   <Fields>
